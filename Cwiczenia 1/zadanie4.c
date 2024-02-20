@@ -9,7 +9,7 @@ int main() {
 }
 
 void foobar(int ile){
-    for (int i = 0; i < ile; i++){
+    for (int i = 1; i <= ile; i++){
         if (i % 35 == 0){
             printf("FooBar\n");
         }
