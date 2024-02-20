@@ -1,21 +1,21 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int silnia(int liczba);
+void silnia(int liczby[], int rozmiar);
 
 int main() {
     int array[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-    for (int i = 0; i < sizeof(array)/sizeof(array[0]); i++){
-        printf("%d \n",silnia(array[i]));
-    }
+    silnia(array, 10);
     
     return 0;
 }
 
-int silnia(int liczba){
-    int wynik = 1;
-    for(int i = 1; i <= liczba; i++){
-        wynik*=i;
+void silnia(int liczby[], int rozmiar){
+    for(int i = 0; i < rozmiar; i++){ //przechodzi po tablicy
+        int wynik = 1;
+        for(int j = 1; j <= liczby[i]; j++){//oblicza silnie
+            wynik*=j;
+        }
+        printf("%d\n", wynik);
     }
-    return wynik;
 }
