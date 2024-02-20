@@ -4,8 +4,8 @@
 float avg(int tab[], int size);
 
 int main() {
-    int grades[5][6] = {{2,4,5,6,2}, {5,5,3,5,2,3}};
-    printf("Srednia ocen z matematyki: %f \nSrednia ocen z fizyki: %f", avg(grades[0],5), avg(grades[1],6));
+    int grades[5][5] = {{2,4,5,6,2}, {5,5,3,5,2}};
+    printf("Srednia ocen z matematyki: %f \nSrednia ocen z fizyki: %f", avg(grades[0],5), avg(grades[1],5));
 
     return 0;
 }
