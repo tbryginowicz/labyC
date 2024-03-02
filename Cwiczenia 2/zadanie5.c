@@ -1,21 +1,3 @@
-/*
-### **Zadanie 5: Implementacja prostej książki adresowej**
-
----
-
-- Zdefiniuj strukturę **`Contact`**, która zawiera imię, nazwisko (jako tablice znaków) oraz numer telefonu (jako tablicę znaków).
-- Utwórz tablicę struktur **`Contact`** i zainicjuj ją przykładowymi danymi.
-- Napisz funkcje do:
-    - Dodawania nowego kontaktu do książki adresowej.
-    - Wyszukiwania kontaktu po nazwisku.
-    - Usuwania kontaktu po nazwisku.
-    - Wypisywania wszystkich kontaktów w książce adresowej.
-- Aby ułatwić zarządzanie tablicą kontaktów, możesz założyć stały maksymalny rozmiar tablicy i śledzić aktualną liczbę kontaktów.
-- W funkcji **`main`**, zaimplementuj prosty interfejs użytkownika pozwalający na wykonanie powyższych operacji
-    (dodaj, znajdź, usuń, wyświetl wszystkie). ( po prostu użyj funkcji `scanf`,
-    pytając co użytkownik chce zrobić, lub wykorzystaj [parsowanie argumentów wejściowych]
-    (https://stackoverflow.com/questions/9642732/parsing-command-line-arguments-in-c))
-*/
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -44,38 +26,48 @@ int main() {
     int *plen = &len;
     int going = 1;
     while (going == 1){
-        printf("Mozliwe polecenia: dodaj, znajdz, usun, wyswietl. Wpisz polecenie");
-        char *polecenie;
-        scanf("%s", &polecenie);
-        if (strcomp(polecenie, "dodaj") == 0){
-            char *imie, *nazwisko, *numer;
-            printf("Podaj imie:");
+        printf("\nMozliwe polecenia: dodaj, znajdz, usun, wyswietl, wyjdz. Wpisz polecenie:\n");
+        char polecenie[10];
+        scanf("%s", polecenie);
+        if (strcmp(polecenie, "dodaj") == 0){
+            char imie[30], nazwisko[30], numer[13];
+            printf("Podaj imie:\n");
             scanf("%s", imie);
-            printf("Podaj nazwisko:");
+            printf("Podaj nazwisko:\n");
             scanf("%s", nazwisko);
-            printf("Podaj numer telefonu:");
+            printf("Podaj numer telefonu:\n");
             scanf("%s", numer);
-            
             add(contacts, imie, nazwisko, numer, plen);
         }
-        if (strcomp(polecenie, "usun") == 0){
-
+        else if (strcmp(polecenie, "usun") == 0){
+            char nazwisko[30];
+            printf("Podaj nazwisko usuwanej osoby, lub wpisz anuluj:\n");
+            scanf("%s", nazwisko);
+            if (!(strcmp(nazwisko, "anuluj") == 0)){
+                removeFromContacts(contacts, nazwisko, plen);
+            }
         }
-        if (strcomp(polecenie, "znajdz") == 0){
-
+        else if (strcmp(polecenie, "znajdz") == 0){
+            char nazwisko[30];
+            printf("Podaj nazwisko osoby do wyszukania:\n");
+            scanf("%s", nazwisko);
+            if (find(contacts, nazwisko, plen, 0) != -1){
+                find(contacts, nazwisko, plen, 1);
+            }
+            else{
+                printf("Nie ma takiego kontaktu!");
+            }
         }
-        if (strcomp(polecenie, "wyswietl") == 0){
+        else if (strcmp(polecenie, "wyswietl") == 0){
             allContacts(contacts, plen);
         }
+        else if (strcmp(polecenie, "wyjdz") == 0){
+            going = 0;
+        }
+        else{
+            printf("Zle polecenie.");
+        }
     }
-    /*
-    add(contacts, "Marcin", "Nazwiskowy", "+48222", plen);
-    
-    allContacts(contacts, plen);
-    removeFromContacts(contacts, "Kubica", plen);
-    printf("\n\n");
-    allContacts(contacts, plen);
-    */
     return 0;
 }
 
@@ -112,6 +104,6 @@ void removeFromContacts(Contact *contacts, char *nazwisko, int *len){
 
 void allContacts(Contact *contacts, int *len){
     for (int i = 0; i < *len; i ++){
-        printf("%s %s: %s\n", contacts[i].imie, contacts[i].nazwisko, contacts[i].numer);
+        printf("\n%s %s: %s\n", contacts[i].imie, contacts[i].nazwisko, contacts[i].numer);
     }
 }

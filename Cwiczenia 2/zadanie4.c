@@ -10,8 +10,7 @@ void studentSort(Student *arr, int n);
 
 int main() {
     Student tab[5] = {{"Adam", 4.3f}, {"Jas", 2.0f}, {"Michal", 4.55f}, {"Dariusz", 3.95f}, {"Zosia", 5.0f}};
-    Student *ptab = &tab;
-    studentSort(ptab, 5);
+    studentSort(tab, 5);
     for (int i = 0; i < 5; i ++){
         printf("%s: %f", tab[i].imie, tab[i].ocena);
     }
