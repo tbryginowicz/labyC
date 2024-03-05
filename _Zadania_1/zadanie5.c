@@ -1,6 +1,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+int policz(int liczba);
+
 int main() {
     printf("%d",policz(25));
     return 0;
