@@ -23,7 +23,7 @@ int main(){
         }
         printf("\n");
     }
-    for (int i = 0; i < x; i++){
+    for (int i = 0; i < y; i++){
         free(tab[i]);
     }
     free(tab);
