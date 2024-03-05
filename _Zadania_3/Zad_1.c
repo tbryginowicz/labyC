@@ -35,6 +35,7 @@ int main() {
         printf("\n");
     }
     /*
+    a
     for (i = 0; i<=wysokosc; i++){
         for (j = 0; j<i; j++){
             printf("%d", tab[i][j]);
