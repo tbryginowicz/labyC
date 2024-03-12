@@ -29,16 +29,9 @@ void printArray(int array[], int size){
     }
     printf("%d]\n", array[size-1]);
 }
-int i = 0;
-
 int binarySearch(int array[],int value, int left, int right){
     if(left < right){
         bubbleSort(array,right);
-        //printf("TEST: %d;%d\n",left,right);
-        i++;
-        if (i == 20){
-            return -1;
-        }
         if(array[(left + right)/2] == value){
             return (left + right)/2;
         }else if(array[(left + right)/2] > value){
