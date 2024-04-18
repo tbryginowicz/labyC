@@ -53,7 +53,7 @@ int main(){
         first = firstWordNumber;
         last = lastWordNumber;
         for (int i = 0; i<strlen(line); i++){
-            if isdigit(line[i]){
+            if (isdigit(line[i])){
                 if(first == '\0' || i < firstWordNumberIndex){
                     first =  line[i];
                     firstWordNumberIndex = i;
