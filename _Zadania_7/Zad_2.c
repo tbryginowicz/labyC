@@ -79,9 +79,7 @@ int main(){
         }
     }
     if(red <= limitRed && blue <= limitBlue && green <= limitGreen){
-        //printf("\n!RED: %d/%d; GREEN: %d/%d; BLUE: %d/%d\n", red, limitRed, green, limitGreen, blue, limitBlue);
         suma += id;
-        //printf("\nID: %d\n", id);
     }
     int moc = red*green*blue;
     mocsuma += moc;
