@@ -10,7 +10,7 @@ int main(){
     fp = fopen("input2.txt", "r");
     int sum = 0;
     size_t len = 0;
-    ssize_t read;
+    size_t read;
     int red = 0;
     int green = 0;
     int blue = 0;

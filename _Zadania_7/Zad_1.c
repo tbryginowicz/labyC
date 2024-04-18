@@ -22,7 +22,7 @@ int main(){
     fp = fopen("input.txt", "r");
     int sum = 0;
     size_t len = 0;
-    ssize_t read;
+    size_t read;
     if (fp == NULL){
         exit(EXIT_FAILURE);
     }
