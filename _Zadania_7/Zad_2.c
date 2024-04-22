@@ -6,11 +6,8 @@
 
 int main(){
     FILE *fp;
-    char * line = NULL;
+    char line[1024];
     fp = fopen("input2.txt", "r");
-    int sum = 0;
-    size_t len = 0;
-    size_t read;
     int red = 0;
     int green = 0;
     int blue = 0;
@@ -24,7 +21,7 @@ int main(){
     int suma = 0;
     char *colors[] = {"red", "green", "blue"};
     int mocsuma = 0;
-    while ((read = getline(&line, &len, fp)) != -1){
+    while (fgets(line, sizeof(line), fp) != NULL){
     id++;
     for(int i = 0; i < sizeof(colors) / sizeof(colors[0]); i++){
         char *found = line;

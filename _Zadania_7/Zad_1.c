@@ -4,32 +4,19 @@
 #include <ctype.h>
 #include <string.h>
 
-char *zero = "zero";
-char *one = "one";
-char *two = "two";
-char *three = "three";
-char *four = "four";
-char *five = "five";
-char *six = "six";
-char *seven = "seven";
-char *eight = "eight";
-char *nine = "nine";
+const char *nums[] = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
 
 int main(){
 
     FILE *fp;
-    char * line = NULL;
+    char line[1024];
     fp = fopen("input.txt", "r");
     int sum = 0;
-    size_t len = 0;
-    size_t read;
     if (fp == NULL){
         exit(EXIT_FAILURE);
     }
 
-    char *nums[] = {zero, one, two, three, four, five, six, seven, eight, nine};
-
-    while ((read = getline(&line, &len, fp)) != -1){
+    while (fgets(line, sizeof(line), fp) != NULL){
         char first = '\0';
         char last = '\0';
         int firstWordNumberIndex = 999;
