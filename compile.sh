@@ -16,6 +16,7 @@ find . -name '*.c' | while read file; do
     fi
 done
 
+# Find all C++ files recursively in subdirectories
 find . -name '*.cpp' | while read file; do
     if [ -f "$file" ]; then
         filename=$(basename "$file" .cpp)
