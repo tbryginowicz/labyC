@@ -3,7 +3,7 @@
 rename_files_recursively() {
     find . -type f -name '*.cpp' | while read -r file; do
         relative_path=$(dirname "$file")
-        newname="$relative_path/$(basename "$file" .cpp).cpp"
+        newname="$relative_path/$(basename "$file" .cpp).c"
         mv "$file" "$newname"
         echo "Renamed: $file to $newname"
     done
@@ -33,7 +33,6 @@ replace_space_with_underscore_in_files() {
     done
 }
 
-rename_files_recursively
 remove_polish_characters
 replace_space_with_underscore_in_directories
 replace_space_with_underscore_in_files
