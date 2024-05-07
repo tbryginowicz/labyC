@@ -3,7 +3,7 @@
 rename_files_recursively() {
     find . -type f -name '*.cpp' | while read -r file; do
         relative_path=$(dirname "$file")
-        newname="$relative_path/$(basename "$file" .cpp).c"
+        newname="$relative_path/$(basename "$file" .cpp).cpp"
         mv "$file" "$newname"
         echo "Renamed: $file to $newname"
     done
